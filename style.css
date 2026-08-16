@@ -175,6 +175,20 @@ button:focus-visible {
   }
 }
 
+/* Language switch (EN / JP) — small bordered badge, distinct from the
+   plain text nav items around it. */
+.global-nav a.lang-switch {
+  font-size: 0.75rem;
+  padding: 0.3em 0.75em;
+  border: 1px solid var(--color-line);
+  border-radius: 2px;
+}
+
+.global-nav a.lang-switch:hover {
+  background-color: var(--color-gray-bg);
+  border-color: var(--color-navy);
+}
+
 /* -----------------------------------------
    Layout helpers
    ----------------------------------------- */
@@ -780,6 +794,22 @@ button:focus-visible {
 
 .contact-note a:hover {
   border-color: var(--color-navy);
+}
+
+/* Back to top / back to service site — sits below the contact panel,
+   reuses .text-link styling; its own top margin is dropped in favor
+   of the container's border/padding. */
+.page-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 2rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-line);
+}
+
+.page-actions .text-link {
+  margin-top: 0;
 }
 
 /* -----------------------------------------
