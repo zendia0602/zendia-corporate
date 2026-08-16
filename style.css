@@ -715,6 +715,18 @@ button:focus-visible {
     font-size: 0.9375rem;
     white-space: nowrap;
   }
+
+  /* The English items run noticeably longer than the Japanese
+     originals and overflow a single line at 4 columns — keeps the
+     2-column layout (and normal wrapping) used below this breakpoint
+     instead, so it reads as two rows rather than being cut off. */
+  .overview-grid--wrap {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .overview-grid--wrap p {
+    white-space: normal;
+  }
 }
 
 /* -----------------------------------------
