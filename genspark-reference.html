@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>株式会社ゼンディア（ZENDIA Inc.）| Corporate Brand Site</title>
+<meta name="description" content="株式会社ゼンディアは、医療コーディネーション・医療インバウンド支援・旅行サービス手配・多言語支援を通じて、日本と世界を静かな精度でつなぐ企業です。">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">本文へスキップ</a>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <img src="images/zendia-logo.png" alt="ZENDIA" width="3500" height="1500" class="logo-img">
+    </a>
+
+    <nav class="global-nav" aria-label="グローバルナビゲーション">
+      <ul>
+        <li><a href="company.html">Company</a></li>
+        <li><a href="#business">Business</a></li>
+        <li><a href="#compliance">Compliance</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="lang-switch">
+      <a href="#" aria-current="true">JP</a>
+      <span aria-hidden="true">|</span>
+      <a href="#">EN</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!--
+    写真プレースホルダー規約：
+    .media > .media-frame（罫線パターン＋キャプション）は仮表示。
+    実写真が揃ったら .media-frame の中に
+    <picture><source type="image/avif" ...><source type="image/webp" ...><img loading="lazy" decoding="async" class="media-photo" ...></picture>
+    を追加すれば、object-fit:cover で自動的に枠内へ収まる構造になっている。
+  -->
+
+  <!-- 1. Hero -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <p class="hero-eyebrow reveal">ZENDIA Inc. — Corporate Brand Site</p>
+        <h1 class="hero-title reveal reveal-delay-1">精度で、世界と医療をつなぐ。</h1>
+        <p class="hero-lead reveal reveal-delay-2">
+          医療機関との連携、渡航に関わる手配、多言語によるコミュニケーション。
+          ゼンディアは、国境を越えるすべての人のために、静かな精度で全体を設計します。
+        </p>
+        <div class="hero-actions reveal reveal-delay-3">
+          <a class="btn btn-primary" href="#business">事業を見る</a>
+          <a class="btn btn-secondary" href="https://zendia.jp/" target="_blank" rel="noopener">zendia.jp Medical Services</a>
+        </div>
+      </div>
+
+      <div class="hero-media">
+        <div class="media-frame media-frame--dark">
+          <img
+            src="images/hero-yokohama.jpg"
+            alt="横浜みなとみらいの都市景観。横浜ランドマークタワーと横浜赤レンガ倉庫が見える。"
+            width="1920"
+            height="1280"
+            class="media-photo hero-photo"
+            fetchpriority="high"
+            decoding="async"
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. ブランドステートメント -->
+  <section class="section statement">
+    <div class="section-inner statement-inner reveal">
+      <p class="section-eyebrow">Our Belief</p>
+      <p class="statement-text">
+        私たちが設計するのは、治療への行程ではなく、<br>
+        安心して国境を越えるための時間そのものです。
+      </p>
+      <p class="statement-sub">医療の専門性と、日本のホスピタリティ。ふたつを、ひとつの窓口で。</p>
+    </div>
+  </section>
+
+  <!-- 3. 写真を使ったBusiness紹介 -->
+  <section class="section" id="business" aria-labelledby="business-heading">
+    <div class="section-inner">
+      <div class="section-head reveal">
+        <p class="section-eyebrow">Business</p>
+        <h2 class="section-title" id="business-heading">事業領域</h2>
+        <p class="section-lead">
+          医療とホスピタリティ、両方の専門性を組み合わせ、越境医療における様々な場面を支えます。
+        </p>
+      </div>
+
+      <div class="business-rows">
+        <article class="business-row reveal">
+          <div class="business-media reveal-zoom">
+            <div class="media-frame" role="img" aria-label="近代的な医療機関や都市建築を思わせる写真（準備中）">
+              <p class="media-caption">PHOTO — 近代的な医療機関 / 都市建築</p>
+            </div>
+          </div>
+          <div class="business-text">
+            <h3>医療の受け入れを、設計する。</h3>
+            <p>
+              国内外の医療機関と連携し、受診に関わる調整からインバウンド対応まで、
+              患者様お一人おひとりに合わせて丁寧に組み立てます。
+            </p>
+            <p class="business-tags">医療コーディネーション ／ 医療インバウンド支援</p>
+          </div>
+        </article>
+
+        <article class="business-row reveal">
+          <div class="business-media reveal-zoom">
+            <div class="media-frame" role="img" aria-label="空港や移動、ホスピタリティ空間を思わせる写真（準備中）">
+              <p class="media-caption">PHOTO — 空港・移動 / ホスピタリティ空間</p>
+            </div>
+          </div>
+          <div class="business-text">
+            <h3>渡航と対話を、滞りなく。</h3>
+            <p>
+              宿泊・移動の手配から、通訳・翻訳による多言語対応まで。
+              治療に専念いただけるよう、生活の側面を静かに支えます。
+            </p>
+            <p class="business-tags">旅行サービス手配 ／ 多言語支援</p>
+          </div>
+        </article>
+
+        <article class="business-row reveal">
+          <div class="business-media reveal-zoom">
+            <div class="media-frame" role="img" aria-label="国際的な接点を感じる都市景観の写真（準備中）">
+              <p class="media-caption">PHOTO — 国際的な接点を感じる都市景観</p>
+            </div>
+          </div>
+          <div class="business-text">
+            <h3>信頼のネットワークを、世界へ。</h3>
+            <p>
+              海外の旅行会社・医療機関とのB2Bパートナーシップを構築し、
+              国境を越えた紹介・連携の基盤を広げています。
+            </p>
+            <p class="business-tags">海外旅行会社・医療機関との連携</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. International / Coordination -->
+  <section class="section section-alt global">
+    <div class="section-inner">
+      <div class="section-head reveal">
+        <p class="section-eyebrow">International Coordination</p>
+        <h2 class="section-title">国境の先まで、精度を届ける。</h2>
+      </div>
+
+      <div class="global-media reveal-zoom">
+        <div class="media-frame media-frame--dark media-frame--wide" role="img" aria-label="東京・横浜の都市景観と国際的な移動を思わせる写真（準備中）">
+          <p class="media-caption">PHOTO — 東京・横浜 / 国際的な移動</p>
+        </div>
+      </div>
+
+      <ul class="global-points reveal">
+        <li>
+          <span class="global-index">01</span>
+          <h3>医療 <span lang="en">Medical</span></h3>
+          <p>信頼できる医療機関とのネットワーク</p>
+        </li>
+        <li>
+          <span class="global-index">02</span>
+          <h3>渡航 <span lang="en">Travel</span></h3>
+          <p>移動・宿泊を含む一貫した手配</p>
+        </li>
+        <li>
+          <span class="global-index">03</span>
+          <h3>言語 <span lang="en">Language</span></h3>
+          <p>多言語によるきめ細やかな対話</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 5. Company / Trust -->
+  <section class="section company-trust" aria-labelledby="company-heading">
+    <div class="section-inner">
+      <div class="section-head reveal">
+        <p class="section-eyebrow">Company</p>
+        <h2 class="section-title" id="company-heading">静かな基盤の上に。</h2>
+        <p class="section-lead">
+          株式会社ゼンディアは2026年、横浜に生まれました。医療を必要とする方々と、
+          信頼できる医療機関・旅行サービスとの間に立ち、言語や文化の壁を越えた
+          円滑なコーディネーションを提供しています。
+        </p>
+      </div>
+
+      <div class="company-facts reveal">
+        <div class="company-fact">
+          <dt>設立</dt>
+          <dd>2026年6月2日</dd>
+        </div>
+        <div class="company-fact">
+          <dt>所在地</dt>
+          <dd>横浜市中区桜木町</dd>
+        </div>
+        <div class="company-fact">
+          <dt>資本金</dt>
+          <dd>600万円</dd>
+        </div>
+      </div>
+
+      <a class="text-link reveal" href="company.html">会社概要を見る<span aria-hidden="true"> →</span></a>
+    </div>
+  </section>
+
+  <!-- 6. Registration / Security -->
+  <section class="section section-alt" id="compliance" aria-labelledby="compliance-heading">
+    <div class="section-inner">
+      <div class="section-head reveal">
+        <p class="section-eyebrow">Registration / Security</p>
+        <h2 class="section-title" id="compliance-heading">登録・情報セキュリティ</h2>
+      </div>
+
+      <div class="registration-grid reveal">
+        <div class="registration-item">
+          <p class="registration-label">登録</p>
+          <p class="registration-value">神奈川県知事登録<br>旅行サービス手配業　第174号</p>
+        </div>
+        <div class="registration-item">
+          <p class="registration-label">情報セキュリティ</p>
+          <p class="registration-value">SECURITY ACTION<br>二つ星宣言事業者</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. zendia.jp Medical Servicesへの導線 -->
+  <section class="section-cta" aria-labelledby="service-heading">
+    <div class="cta-media reveal-zoom">
+      <div class="media-frame media-frame--dark media-frame--wide" role="img" aria-label="ホテルやホスピタリティを感じる洗練された空間の写真（準備中）">
+        <p class="media-caption">PHOTO — ホスピタリティ空間</p>
+      </div>
+      <div class="cta-content reveal">
+        <p class="section-eyebrow">Medical Services</p>
+        <h2 class="section-title" id="service-heading">サービスの詳細は、zendia.jpで。</h2>
+        <p class="section-lead">
+          医療渡航に関する具体的なサービス内容・ご相談窓口は、
+          専門サイト「zendia.jp」にてご案内しています。
+        </p>
+        <a class="btn btn-primary" href="https://zendia.jp/" target="_blank" rel="noopener">zendia.jp を見る</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer" id="contact">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <p class="footer-logo">ZENDIA</p>
+      <p class="footer-name">株式会社ゼンディア</p>
+    </div>
+
+    <nav class="footer-nav" aria-label="フッターナビゲーション">
+      <ul>
+        <li><a href="company.html">Company</a></li>
+        <li><a href="#business">Business</a></li>
+        <li><a href="#compliance">Compliance</a></li>
+        <li><a href="https://zendia.jp/" target="_blank" rel="noopener">Medical Services</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">お問い合わせ</a></li>
+      </ul>
+    </nav>
+
+    <p class="footer-copyright">&copy; 2026 ZENDIA Inc.</p>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+</body>
+</html>
