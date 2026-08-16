@@ -802,7 +802,7 @@ button:focus-visible {
 .page-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem 2rem;
+  gap: 1rem 3.5rem;
   margin-top: 2rem;
   padding-top: 1.5rem;
   border-top: 1px solid var(--color-line);
