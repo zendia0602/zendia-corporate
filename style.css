@@ -59,6 +59,13 @@ p {
   text-wrap: pretty;
 }
 
+/* Keeps a katakana loanword (e.g. 海外パートナー) from breaking
+   mid-word at narrow widths — Japanese line-wrapping otherwise allows
+   a break between any two characters. */
+.nowrap {
+  white-space: nowrap;
+}
+
 ul {
   list-style: none;
   padding: 0;
@@ -628,6 +635,14 @@ button:focus-visible {
   font-size: 1rem;
   color: rgba(255, 255, 255, 0.82);
   max-width: 32em;
+}
+
+/* NEWS page-hero lead lists several categories in one sentence — wider
+   than the shared 32em cap so it can sit on one line at typical desktop
+   widths instead of wrapping. Scoped to this one paragraph only; the
+   Company/Privacy/Security page-heroes keep the narrower default. */
+.page-hero-lead--wide {
+  max-width: none;
 }
 
 /* -----------------------------------------
