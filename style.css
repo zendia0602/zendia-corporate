@@ -1010,6 +1010,12 @@ button:focus-visible {
   color: var(--color-ink-soft);
 }
 
+/* MTF (Medical Travel Forum) membership logo — displayed larger than the
+   default badge size per the logo's usage guidelines (150-220px). */
+.news-badge--mtf img {
+  width: 180px;
+}
+
 .legal-contact-card {
   margin-top: 1rem;
   padding: 1.5rem;
