@@ -1302,22 +1302,78 @@ button:focus-visible {
 .pt-connect-line {
   position: relative;
   height: 1px;
+  margin: 0 3px;
   background-color: var(--color-navy);
 }
 
+/* Two-way arrow heads */
 .pt-connect-line::before,
 .pt-connect-line::after {
   content: "";
   position: absolute;
-  top: -3px;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background-color: var(--color-navy);
+  top: -4px;
+  width: 8px;
+  height: 8px;
+  border-top: 1px solid var(--color-navy);
+  border-right: 1px solid var(--color-navy);
 }
 
-.pt-connect-line::before { left: 0; }
-.pt-connect-line::after { right: 0; }
+.pt-connect-line::before { left: -1px; transform: rotate(-135deg); }
+.pt-connect-line::after { right: -1px; transform: rotate(45deg); }
+
+/* Dots travelling both ways along the line (restored from the former
+   page). Static at the centre when motion is reduced. */
+.pt-connect-dot {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--color-navy);
+  transform: translate(-50%, -50%);
+}
+
+.pt-connect-dot--rev {
+  display: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .pt-connect-dot {
+    opacity: 0;
+    animation: pt-connect-flow 3.6s ease-in-out infinite;
+  }
+
+  .pt-connect-dot--rev {
+    display: block;
+    animation-direction: reverse;
+    animation-delay: 1.8s;
+  }
+}
+
+@keyframes pt-connect-flow {
+  0% { left: 10%; opacity: 0; }
+  12% { opacity: 1; }
+  50% { left: 90%; opacity: 1; }
+  62% { opacity: 0; }
+  100% { left: 90%; opacity: 0; }
+}
+
+@media (max-width: 479px) {
+  .pt-connect {
+    grid-template-columns: 1fr minmax(2.5rem, 4.5rem) 1fr;
+    gap: 0.5rem;
+  }
+
+  .pt-connect-side {
+    font-size: 0.9375rem;
+  }
+
+  .pt-connect-caption {
+    font-size: 0.625rem;
+    letter-spacing: 0.08em;
+  }
+}
 
 /* Step boxes joined by arrows (↓ on phones, → from 900px) */
 .pt-steps {
@@ -1330,6 +1386,9 @@ button:focus-visible {
 
 .pt-step {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   background-color: var(--color-white);
   border: 1px solid var(--color-line);
   padding: 1rem 1.25rem;
@@ -1647,7 +1706,7 @@ button:focus-visible {
 
 .pt-hub {
   width: 100%;
-  max-width: 380px;
+  max-width: 400px;
   margin: 0 auto;
 }
 
@@ -1662,18 +1721,217 @@ button:focus-visible {
   font-weight: 600;
 }
 
-/* Homepage: the two partner links under 国際パートナーシップ */
-.pillar-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  margin-top: 1.25rem;
+/* ---- Partner pages: typography (scoped to <main class="pt-page">) ----
+   Text breaks between phrases instead of mid-word (never 「ご検／討」),
+   which also stops 「ます。」 being stranded on a line of its own;
+   headings are balanced over their lines. Browsers without support
+   fall back to normal Japanese line breaking. */
+.pt-page {
+  word-break: auto-phrase;
+  line-break: strict;
 }
 
-/* Navy CTA buttons (.btn .btn-dark): side by side when the column is wide
-   enough, otherwise each wraps onto its own full-width row. */
+/* Card rows (partnership models, merits): three across only where each
+   card is wide enough for its text; stacked below that. */
+@media (min-width: 700px) and (max-width: 959px) {
+  .pt-page .pillars {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
+
+.pt-page p,
+.pt-page li {
+  text-wrap: pretty;
+}
+
+.pt-page h1,
+.pt-page h2,
+.pt-page h3 {
+  text-wrap: balance;
+}
+
+/* Long section titles may use the full content width; the lead
+   paragraph keeps a readable measure. */
+.pt-page .section-head {
+  max-width: none;
+  margin-bottom: clamp(1.75rem, 3.5vw, 2.25rem);
+}
+
+.pt-page .section-lead {
+  max-width: 46em;
+}
+
+.pt-nobr {
+  white-space: nowrap;
+}
+
+/* Japanese fonts draw Cyrillic as full-width glyphs (Р у с с к и й) */
+.pt-page [lang="ru"] {
+  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ---- Partner pages: restored animations ----
+   Everything here is progressive enhancement: without JavaScript, or
+   with reduced motion, the diagrams render in their finished state. */
+
+/* Staggered entrance (merit cards 150 ms apart, flow steps 120 ms) */
+.js .pt-delay-1 { --pt-delay: 0.15s; transition-delay: 0.15s; }
+.js .pt-delay-2 { --pt-delay: 0.3s; transition-delay: 0.3s; }
+.js .pt-stagger-1 { transition-delay: 0.12s; }
+.js .pt-stagger-2 { transition-delay: 0.24s; }
+.js .pt-stagger-3 { transition-delay: 0.36s; }
+.js .pt-stagger-4 { transition-delay: 0.48s; }
+
+/* Travel 4-step story: numbers light up one by one and the line to the
+   next step draws itself (JS adds .pt-flow-ready, then .is-active /
+   .is-drawn per step; the finished state is kept). */
+.pt-timeline .pt-num {
+  transition: background-color 0.8s ease, border-color 0.8s ease,
+    color 0.8s ease, box-shadow 0.8s ease;
+}
+
+.pt-flow-ready > li .pt-num {
+  border-color: var(--color-line);
+  color: var(--color-ink-soft);
+}
+
+.pt-flow-ready > li.is-active .pt-num {
+  background-color: var(--color-navy);
+  border-color: var(--color-navy);
+  color: #ffffff;
+  box-shadow: 0 0 0 6px rgba(13, 41, 66, 0.07);
+}
+
+.pt-flow-ready > li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 1.375rem;
+  top: 2.75rem;
+  bottom: -1.75rem;
+  width: 1px;
+  background-color: var(--color-navy);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 1.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+@media (min-width: 900px) {
+  .pt-flow-ready > li:not(:last-child)::after {
+    left: 2.75rem;
+    right: -2rem;
+    top: 1.375rem;
+    bottom: auto;
+    width: auto;
+    height: 1px;
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+}
+
+.pt-flow-ready > li.is-drawn:not(:last-child)::after {
+  transform: none;
+}
+
+/* Medical flow: the number takes focus on hover (former page) */
+.pt-timeline--vertical > li:hover .pt-num {
+  background-color: var(--color-navy);
+  color: #ffffff;
+}
+
+/* Medical merit cards: gentle lift of the shadow on hover */
+.pt-merits .pt-card {
+  transition: box-shadow 0.35s ease 0s,
+    opacity 0.8s var(--ease-soft) var(--pt-delay, 0s),
+    transform 0.8s var(--ease-soft) var(--pt-delay, 0s);
+}
+
+.pt-merits .pt-card:hover {
+  box-shadow: 0 8px 24px rgba(13, 41, 66, 0.08);
+}
+
+/* Medical hub: each connection and party is highlighted in turn and the
+   centre pulses softly (JS toggles .is-active while in view). */
+.pt-hub-lines line {
+  transition: stroke-width 0.6s ease, stroke-opacity 0.6s ease;
+}
+
+.pt-hub-lines line.is-active {
+  stroke-width: 3;
+  stroke-opacity: 0.9;
+}
+
+.pt-hub-node {
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform 0.7s ease, filter 0.7s ease;
+}
+
+.pt-hub-node.is-active {
+  transform: scale(1.08);
+  filter: drop-shadow(0 4px 8px rgba(13, 41, 66, 0.22));
+}
+
+.pt-hub-pulse {
+  stroke-opacity: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .js .pt-hub-pulse {
+    animation: pt-hub-pulse 5s ease-in-out infinite;
+  }
+}
+
+@keyframes pt-hub-pulse {
+  0%, 100% { stroke-opacity: 0; }
+  50% { stroke-opacity: 0.1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pt-hub-node,
+  .pt-hub-lines line,
+  .pt-timeline .pt-num {
+    transition: none !important;
+  }
+}
+
+/* Homepage: CTA row for the partner pages, below the three business cards.
+   Two equal-width buttons side by side; stacked only on the narrowest phones. */
+.partner-cta {
+  margin-top: clamp(2.5rem, 5vw, 3.5rem);
+  padding-top: clamp(2rem, 4vw, 2.75rem);
+  border-top: 1px solid var(--color-line);
+  text-align: center;
+}
+
+.partner-cta-title {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-navy);
+  margin-bottom: 1.25rem;
+}
+
+.pillar-links {
+  display: grid;
+  grid-template-columns: minmax(0, 20rem);
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+@media (min-width: 360px) {
+  .partner-cta-title {
+    font-size: 1.0625rem;
+  }
+
+  .pillar-links {
+    grid-template-columns: repeat(2, minmax(0, 15rem));
+    gap: 1rem;
+  }
+}
+
 .pillar-cta {
-  flex: 1 1 9rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
