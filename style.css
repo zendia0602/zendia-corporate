@@ -1754,6 +1754,16 @@ button:focus-visible {
   white-space: nowrap;
 }
 
+/* Medical: 「ZENDIAが重視していること」 list — same measure as the body
+   text, with room between the points (the former page spaced them too). */
+.pt-page .legal-content {
+  max-width: 46em;
+}
+
+.pt-page .legal-content li + li {
+  margin-top: 0.9rem;
+}
+
 /* Short paragraphs (one to three lines: section leads, contact text)
    read better broken between phrases into lines of similar length than
    run to the full measure with a short tail. */
