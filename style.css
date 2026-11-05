@@ -1787,6 +1787,34 @@ button:focus-visible {
   margin-top: 0.9rem;
 }
 
+/* Medical: the five numbered values (heading + text per item) */
+.pt-values {
+  margin: 0;
+  padding: 0;
+}
+
+.pt-page .pt-values li {
+  list-style: none;
+  margin-bottom: 0;
+}
+
+.pt-page .pt-values li + li {
+  margin-top: 1.75rem;
+}
+
+.pt-values h3 {
+  font-family: var(--font-serif);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: var(--color-navy);
+  line-height: 1.6;
+  margin-bottom: 0.4rem;
+}
+
+.pt-values p {
+  margin-bottom: 0;
+}
+
 /* The 旅行会社・DMC — ZENDIA strip stays centred (not justified like body text). */
 .pt-page .pt-connect p {
   text-align: center;
