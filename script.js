@@ -184,3 +184,27 @@
     ).observe(hub);
   }
 })();
+
+// Partner pages — keep the last few characters of each paragraph together
+// so a line never ends up holding only 「ます。」 or 「です。」. Pure
+// presentation: the text is unchanged, and without JS the browser's
+// normal line breaking applies.
+(function () {
+  var main = document.querySelector("main.pt-page");
+  if (!main) return;
+  var TAIL = 5;
+  main.querySelectorAll("p, li").forEach(function (el) {
+    if (el.textContent.replace(/\s/g, "").length < 12) return;
+    // only when the paragraph really ends in plain text (not a link etc.)
+    var node = el.lastChild;
+    while (node && node.nodeType === 3 && !node.data.trim()) node = node.previousSibling;
+    if (!node || node.nodeType !== 3) return;
+    var text = node.data.replace(/\s+$/, "");
+    if (text.length <= TAIL) return;
+    var span = document.createElement("span");
+    span.className = "pt-tail";
+    span.textContent = text.slice(-TAIL);
+    node.data = text.slice(0, -TAIL);
+    node.parentNode.insertBefore(span, node.nextSibling);
+  });
+})();

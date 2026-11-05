@@ -1722,13 +1722,36 @@ button:focus-visible {
 }
 
 /* ---- Partner pages: typography (scoped to <main class="pt-page">) ----
-   Text breaks between phrases instead of mid-word (never 「ご検／討」),
-   which also stops 「ます。」 being stranded on a line of its own;
-   headings are balanced over their lines. Browsers without support
-   fall back to normal Japanese line breaking. */
+   Body text keeps standard Japanese line breaking, so lines run to the
+   full measure (script.js keeps a paragraph's last few characters
+   together, so 「ます。」 is never stranded on a line of its own).
+   Headings and short labels break between phrases instead of mid-word
+   (never 「ご検／討」), and headings use proportional punctuation so
+   、・：「」 do not leave wide gaps. */
 .pt-page {
-  word-break: auto-phrase;
   line-break: strict;
+}
+
+.pt-page h1,
+.pt-page h2,
+.pt-page h3,
+.pt-page .pt-step,
+.pt-page .pt-chips li,
+.pt-page .pt-panel li,
+.pt-page .pt-panel-label,
+.pt-page .pt-label,
+.pt-page .pt-connect-side {
+  word-break: auto-phrase;
+}
+
+.pt-page h1,
+.pt-page h2,
+.pt-page h3 {
+  font-feature-settings: "palt";
+}
+
+.pt-tail {
+  white-space: nowrap;
 }
 
 /* Browsers without auto-phrase (Safari, Firefox): headings and step
@@ -1753,14 +1776,17 @@ button:focus-visible {
   }
 }
 
+/* Body text runs flush to the measure, as Japanese text is set; the
+   last line of each paragraph stays left-aligned. */
 .pt-page p,
 .pt-page li {
-  text-wrap: pretty;
+  text-align: justify;
 }
 
 .pt-page h1,
 .pt-page h2,
-.pt-page h3 {
+.pt-page h3,
+.pt-page .pt-step {
   text-wrap: balance;
 }
 
