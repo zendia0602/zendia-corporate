@@ -1223,3 +1223,448 @@ button:focus-visible {
     scroll-behavior: auto;
   }
 }
+
+/* -----------------------------------------
+   Partner pages (/travel-partners/, /medical-partners/)
+   The diagrams carried over from the former zendia.jp pages, redrawn
+   in this site's navy / white / gray. Every rule is scoped to a .pt-*
+   class (or .pillar-links on the homepage), so no existing page changes.
+   ----------------------------------------- */
+.pt-hero .page-hero-lead + .page-hero-lead {
+  margin-top: 0.5rem;
+}
+
+.pt-eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-ink-soft);
+  margin-bottom: 0.5rem;
+}
+
+.pt-prose {
+  max-width: 46em;
+}
+
+.pt-prose p {
+  color: var(--color-ink-soft);
+  line-height: 1.9;
+}
+
+.pt-prose p + p {
+  margin-top: 1rem;
+}
+
+.pt-prose strong {
+  color: var(--color-navy);
+}
+
+.pt-lead-strong {
+  margin-top: 1.5rem;
+  color: var(--color-navy);
+  font-weight: 600;
+  line-height: 1.85;
+}
+
+/* Two parties joined by a line: 旅行会社・DMC — ZENDIA */
+.pt-band {
+  padding: clamp(1.75rem, 4vw, 2.5rem) 0;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.pt-connect {
+  display: grid;
+  grid-template-columns: 1fr minmax(2.5rem, 9rem) 1fr;
+  align-items: center;
+  gap: 0.75rem;
+  max-width: 40rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.pt-connect-side {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: var(--color-navy);
+  line-height: 1.5;
+}
+
+.pt-connect-caption {
+  display: block;
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-ink-soft);
+}
+
+.pt-connect-line {
+  position: relative;
+  height: 1px;
+  background-color: var(--color-navy);
+}
+
+.pt-connect-line::before,
+.pt-connect-line::after {
+  content: "";
+  position: absolute;
+  top: -3px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--color-navy);
+}
+
+.pt-connect-line::before { left: 0; }
+.pt-connect-line::after { right: 0; }
+
+/* Step boxes joined by arrows (↓ on phones, → from 900px) */
+.pt-steps {
+  display: grid;
+  gap: 1.75rem;
+  margin: 2.5rem 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pt-step {
+  position: relative;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-line);
+  padding: 1rem 1.25rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.6;
+  color: var(--color-navy);
+}
+
+.pt-step small {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--color-ink-soft);
+}
+
+.pt-step:not(:last-child)::after {
+  content: "↓";
+  content: "↓" / ""; /* decorative: empty alt text so screen readers skip it; older browsers drop this line and keep the one above */
+  position: absolute;
+  left: 50%;
+  bottom: -1.55rem;
+  transform: translateX(-50%);
+  font-size: 0.9rem;
+  line-height: 1;
+  color: var(--color-ink-soft);
+}
+
+@media (min-width: 900px) {
+  .pt-steps {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .pt-step:not(:last-child)::after {
+    content: "→";
+    content: "→" / "";
+    left: auto;
+    right: -1.35rem;
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%);
+  }
+}
+
+/* Note / case cards with a navy rule on the left */
+.pt-note,
+.pt-case {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-line);
+  border-left: 3px solid var(--color-navy);
+  padding: 1.25rem 1.5rem;
+}
+
+.pt-note p {
+  color: var(--color-navy);
+  font-weight: 500;
+  line-height: 1.9;
+}
+
+.pt-case {
+  margin-bottom: 3rem;
+}
+
+.pt-case h3 {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-navy);
+  margin-bottom: 0.4rem;
+}
+
+.pt-case p {
+  font-size: 0.9375rem;
+  color: var(--color-ink-soft);
+  line-height: 1.85;
+}
+
+/* Numbered circles */
+.pt-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  border: 1px solid var(--color-navy);
+  background-color: var(--color-white);
+  font-family: var(--font-serif);
+  font-weight: 600;
+  color: var(--color-navy);
+  line-height: 1;
+}
+
+.pt-card .pt-num {
+  margin-bottom: 1rem;
+}
+
+/* Numbered steps joined by a line: vertical on phones; the travel story
+   turns horizontal from 900px, the medical flow (--vertical) stays vertical. */
+.pt-timeline {
+  display: grid;
+  gap: 1.75rem;
+  margin: 0 0 3rem;
+  padding: 0;
+  list-style: none;
+}
+
+.pt-timeline > li {
+  position: relative;
+  padding-left: 4rem;
+}
+
+.pt-timeline .pt-num {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.pt-timeline > li:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  left: 1.375rem;
+  top: 2.75rem;
+  bottom: -1.75rem;
+  width: 1px;
+  background-color: var(--color-line);
+}
+
+.pt-timeline h3 {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-navy);
+  line-height: 1.6;
+  margin-bottom: 0.35rem;
+}
+
+.pt-timeline p {
+  font-size: 0.875rem;
+  color: var(--color-ink-soft);
+  line-height: 1.8;
+}
+
+.pt-timeline--vertical {
+  max-width: 46em;
+  margin-top: 2.5rem;
+  margin-bottom: 0;
+}
+
+.pt-timeline--vertical > li {
+  min-height: 2.75rem;
+}
+
+.pt-timeline--vertical p {
+  font-size: 0.9375rem;
+}
+
+@media (min-width: 900px) {
+  .pt-timeline:not(.pt-timeline--vertical) {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+
+  .pt-timeline:not(.pt-timeline--vertical) > li {
+    padding-left: 0;
+    padding-top: 4rem;
+  }
+
+  .pt-timeline:not(.pt-timeline--vertical) > li:not(:last-child)::before {
+    left: 2.75rem;
+    right: -2rem;
+    top: 1.375rem;
+    bottom: auto;
+    width: auto;
+    height: 1px;
+  }
+}
+
+/* Travel case: what ZENDIA organised (navy panel) / what agencies build (chips) */
+.pt-case-grid {
+  display: grid;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 860px) {
+  .pt-case-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    align-items: start;
+  }
+}
+
+.pt-panel {
+  background-color: var(--color-navy);
+  color: rgba(255, 255, 255, 0.86);
+  padding: 1.75rem;
+}
+
+.pt-panel-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.7);
+  padding-bottom: 0.75rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.pt-panel h3 {
+  font-family: var(--font-serif);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: #ffffff;
+  padding-bottom: 0.75rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.pt-panel p {
+  font-size: 0.9375rem;
+  line-height: 1.85;
+}
+
+.pt-panel p + p {
+  margin-top: 0.75rem;
+}
+
+.pt-panel li {
+  position: relative;
+  padding-left: 1rem;
+  font-size: 0.9375rem;
+  line-height: 1.7;
+}
+
+.pt-panel li + li {
+  margin-top: 0.55rem;
+}
+
+.pt-panel li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.75em;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.pt-panel .pt-panel-note {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.66);
+  line-height: 1.8;
+}
+
+.pt-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  color: var(--color-ink-soft);
+  margin-bottom: 1rem;
+}
+
+.pt-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 1.5rem;
+}
+
+.pt-chips li {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-line);
+  padding: 0.35rem 0.8rem;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: var(--color-navy);
+}
+
+.pt-case-grid .pt-chips-text {
+  font-size: 0.9375rem;
+  color: var(--color-ink-soft);
+  line-height: 1.85;
+}
+
+/* Cards inside .pillars (partnership models, merits) */
+.pt-card {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-line);
+  border-top: 2px solid var(--color-navy);
+  padding: 1.5rem;
+}
+
+.section-alt .pt-card {
+  border-color: var(--color-line);
+  border-top-color: var(--color-navy);
+}
+
+/* Medical: ZENDIA in the middle of six parties */
+.pt-split {
+  display: grid;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+@media (min-width: 860px) {
+  .pt-split {
+    grid-template-columns: 1fr 1fr;
+    gap: 3.5rem;
+  }
+}
+
+.pt-hub {
+  width: 100%;
+  max-width: 380px;
+  margin: 0 auto;
+}
+
+.pt-hub svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.pt-hub text {
+  font-family: var(--font-sans);
+  font-weight: 600;
+}
+
+/* Homepage: the two partner links under 国際パートナーシップ */
+.pillar-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1.5rem;
+}
