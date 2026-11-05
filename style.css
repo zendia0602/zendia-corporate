@@ -1731,6 +1731,19 @@ button:focus-visible {
   line-break: strict;
 }
 
+/* Browsers without auto-phrase (Safari, Firefox): headings and step
+   panels break only at the <wbr> phrase points written into the HTML,
+   never mid-word; overflow-wrap is the safety net on very narrow screens. */
+@supports not (word-break: auto-phrase) {
+  .pt-page h1,
+  .pt-page h2,
+  .pt-page h3,
+  .pt-page .pt-step {
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+  }
+}
+
 /* Card rows (partnership models, merits): three across only where each
    card is wide enough for its text; stacked below that. */
 @media (min-width: 700px) and (max-width: 959px) {
