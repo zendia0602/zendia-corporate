@@ -1927,7 +1927,7 @@ button:focus-visible {
 
   .pillar-links {
     grid-template-columns: repeat(2, minmax(0, 15rem));
-    gap: 1rem;
+    gap: 1.5rem;
   }
 }
 
