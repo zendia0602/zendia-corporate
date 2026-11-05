@@ -1764,6 +1764,11 @@ button:focus-visible {
   margin-top: 0.9rem;
 }
 
+/* The 旅行会社・DMC — ZENDIA strip stays centred (not justified like body text). */
+.pt-page .pt-connect p {
+  text-align: center;
+}
+
 /* Short paragraphs (one to three lines: section leads, contact text)
    read better broken between phrases into lines of similar length than
    run to the full measure with a short tail. */
