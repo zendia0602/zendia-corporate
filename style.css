@@ -932,6 +932,7 @@ button:focus-visible {
    ----------------------------------------- */
 .legal-content {
   max-width: 42em;
+  line-break: strict;
 }
 
 /* Wider than .legal-content and explicitly centered — a NEWS article is
@@ -1158,6 +1159,28 @@ button:focus-visible {
 
 .footer-legal a:hover {
   color: #dde2ea;
+}
+
+/* Phones: the four policy/contact links sit in a 2 x 2 grid with
+   comfortable tap targets; from 760px they run on one row. */
+@media (max-width: 759px) {
+  .footer-legal {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 1rem;
+  }
+
+  .footer-legal a {
+    padding: 0.75rem 0;
+  }
+}
+
+.footer-legal-note {
+  flex-basis: 100%;
+  grid-column: 1 / -1;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #98a1b3;
 }
 
 .footer-copyright {
