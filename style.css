@@ -1867,6 +1867,12 @@ button:focus-visible {
   text-wrap: balance;
 }
 
+/* Emphasised particles in section titles. The serif fonts top out at the
+   title's own weight, so a hairline stroke carries the extra weight. */
+.pt-page .section-title strong {
+  -webkit-text-stroke: 0.035em currentColor;
+}
+
 /* Long section titles may use the full content width; the lead
    paragraph keeps a readable measure. */
 .pt-page .section-head {
