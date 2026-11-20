@@ -1641,6 +1641,17 @@ button:focus-visible {
   margin-top: 0.75rem;
 }
 
+/* Inline text link inside the navy panel (light variant of .pt-card p a) */
+.pt-panel p a {
+  color: #ffffff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  transition: border-color 0.2s ease;
+}
+
+.pt-panel p a:hover {
+  border-color: #ffffff;
+}
+
 .pt-panel li {
   position: relative;
   padding-left: 1rem;
