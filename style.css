@@ -434,6 +434,23 @@ button:focus-visible {
   }
 }
 
+/* Homepage pillars: each service link sits at the foot of its column,
+   so the links line up across the row however long the text above is.
+   Stacked on phones, the auto margin adds nothing. */
+#business .pillar {
+  display: flex;
+  flex-direction: column;
+}
+
+#business .pillar p:not(:last-child) {
+  margin-bottom: 1.25rem;
+}
+
+#business .pillar .text-link {
+  align-self: flex-start;
+  margin-top: auto;
+}
+
 /* -----------------------------------------
    Zendiaについて (About)
    ----------------------------------------- */
