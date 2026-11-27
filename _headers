@@ -1,0 +1,17 @@
+# Security headers for zendia.co.jp (Cloudflare Pages), the same policy as zendia.jp (2026-11-27).
+# X-Content-Type-Options: nosniff is already sent for this site, so it is not repeated here.
+# Strict-Transport-Security is introduced in stages: max-age=86400 (1 day), then 604800 (1 week), then 31536000
+# (1 year), each step after checking that nothing broke. No includeSubDomains / preload: they would bind every
+# subdomain of zendia.co.jp and are hard to undo.
+/*
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Strict-Transport-Security: max-age=86400
+
+# Keep Cloudflare Pages preview hostnames out of search results (zendia.co.jp itself is unaffected)
+https://:project.pages.dev/*
+  X-Robots-Tag: noindex
+
+https://:version.:project.pages.dev/*
+  X-Robots-Tag: noindex
